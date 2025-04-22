@@ -1,0 +1,245 @@
+/* === Variables pour les couleurs === */
+:root {
+  --card-bg: #f9f9f9;
+  --text-color: #000;
+  --card-border: #ccc;
+  --tag-bg: #e0e0e0;
+  --tag-color: #000;
+  --tag-border: #ccc;
+}
+
+.dark-mode {
+  --card-bg: #242424;
+  --text-color: #f1f1f1;
+  --card-border: #444;
+  --tag-bg: #333;
+  --tag-color: #f1f1f1;
+  --tag-border: #666;
+}
+
+/* === Styles globaux === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* === Sidebar === */
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.sidebar button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+.dark-mode .sidebar {
+  background-color: #333;
+}
+
+.dark-mode .sidebar button {
+  background-color: #444;
+}
+
+.dark-mode .sidebar button:hover {
+  background-color: #666;
+}
+
+/* === Main Content === */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+/* === Boutons === */
+.main-content button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main-content button:hover {
+  background-color: #218838;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+/* === Filtres et recherche === */
+.search-filters input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tags-container label {
+  font-size: 12px;
+  background-color: var(--tag-bg);
+  color: var(--tag-color);
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--tag-border);
+}
+
+.tags-container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+/* === Carte bot === */
+.bot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.bot-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  transition: transform 0.2s;
+}
+
+.bot-card:hover {
+  transform: translateY(-4px);
+}
+
+/* === Message No Results === */
+.no-results {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-top: 40px;
+}
+
+.no-results p {
+  font-size: 24px;
+  color: #f44336;
+  margin-top: 20px;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* === Highliher === */
+.highlight {
+  background-color: #3a8dd0; /* joli bleu doux */
+  color: white;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+.dark-mode .highlight {
+  background-color: #3a8dd0; /* même bleu en mode sombre */
+  color: white;
+}
+/* Les tags */
+.tag-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.tag-label span {
+  margin-right: 8px;
+  flex: 1;
+}
+
+.tag-btn {
+  font-size: 10px;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.tag-btn.plus {
+  background-color: transparent;
+  color: #3a8dd0;
+  border: 1px solid #3a8dd0;
+}
+
+.tag-btn.minus {
+  background-color: transparent;
+  color: #d33;
+  border: 1px solid #d33;
+}
+
+.tag-btn.plus.active {
+  background-color: #3a8dd0;
+  color: white;
+}
+
+.tag-btn.minus.active {
+  background-color: #d33;
+  color: white;
+}
+
+.tag-btn:hover {
+  transform: scale(1.1);
+}
+.tag-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
