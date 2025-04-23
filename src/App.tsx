@@ -778,13 +778,6 @@ const bots: Bot[] = [
     tags: ['Angst', 'Drama', 'Modern', 'Teenage'],
     link: 'https://c.ai/c/9HgPONX9TSs468o--0ip6AGErMSvdICiMBTqwS5Wh0E',
   },
-  {
-    name: 'Deadpool',
-    description:
-      'Comedic, chimichanga, morally grey, self aware. By Darksoul5832',
-    tags: ['Comedy', 'Drama', 'Modern'],
-    link: 'https://c.ai/c/KsIww1HtsoxkvoObvH6oBOniRcdCu6R7LhulBYDi_mU',
-  },
 ];
 
 const App: React.FC = () => {
@@ -853,8 +846,8 @@ const App: React.FC = () => {
     <div className={`app-container ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className="sidebar">
         <h3>Filters</h3>
-        <button onClick={handleCreateBot}>✍️Want to add a bot?</button>
-        <button onClick={handleNavigate}>🔍 Browse Bots</button>
+        <button onClick={handleCreateBot}>✍️Want to add a character?</button>
+        <button onClick={handleNavigate}>🔍 Browse characters</button>
         <button onClick={toggleDarkMode}>
           {isDarkMode ? '🌞 Switch to Day Mode' : '🌙 Switch to Night Mode'}
         </button>
@@ -863,8 +856,8 @@ const App: React.FC = () => {
       <div className="main-content">
         {currentPage === 'home' && (
           <div>
-            <h1>Welcome to the Bot Browser!</h1>
-            <p>Explore bots, search and filter them.</p>
+            <h1>Welcome to the C.ai Browser!</h1>
+            <p>Explore character, search and filter them.</p>
             <button onClick={handleNavigate}>🚀 Go to Navigation</button>
           </div>
         )}
@@ -925,7 +918,7 @@ const App: React.FC = () => {
             <h2>Results ({filteredBots.length})</h2>
             {filteredBots.length === 0 ? (
               <div className="no-results">
-                <p>😴 No bots found... Maybe later?</p>
+                <p>😴 No character found... Maybe later?</p>
               </div>
             ) : (
               <div className="bot-grid">
@@ -951,7 +944,7 @@ const App: React.FC = () => {
 
         {currentPage === 'createBot' && (
           <div>
-            <h1>Want to add a bot?</h1>
+            <h1>Want to add a character?</h1>
             <p>
               For feedback and requests to put in the list, send me an email:
               ventilateur.requestfeedback@gmail.com
